@@ -1,0 +1,90 @@
+<!-- file to add front end to the python file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuspectEye v4</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #02c5f6;
+            color: #080808;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding-top: 40px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border-radius: 8px;
+            border: none;
+            margin: 40px;
+        }
+        button {
+            padding: 10px 10px;
+            border: none;
+            background-color: #1163ab;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 20px;
+            
+        }
+        button:hover {
+            background-color: #2481d2e2;
+            animation-delay: 0.3s;
+        }
+        .logo {
+            width: 350px;
+            height: 100px;
+            margin-bottom: 40px;
+        }
+        .message {
+            margin-top: 10px;
+            color: #020b71;
+            font-weight: bold;
+        }
+       
+        .capture{
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        footer{
+            background-color: rgb(158, 115, 78);
+            margin-top: 300px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="{{ url_for('static', filename='Logo_bg.png') }}" class="logo" alt="SuspectEye Logo">
+
+    <h1>Real-time criminal identification using facial recognition and CCTV</h1>
+    <div class="form_button">
+    <form class="capture" method="POST" action="/add_face">
+        <input type="text" name="name" placeholder="Enter Name (lowercase only)" pattern="[a-z]+" title="Only lowercase letters" required>
+        <button type="submit">Capture Face</button>
+        
+    </form>
+    <form method="GET" action="/recognize">
+        <button type="submit">Start Recognition</button>
+    </form>
+</div>
+
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+    <footer> Real-time criminal identification using facial recognition and CCTV </footer>
+</body>
+</html>
