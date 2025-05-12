@@ -54,8 +54,8 @@ except FileNotFoundError:
     exit()
 
 # Telegram config
-BOT_TOKEN = '7567361056:AAHzqdQgyHhTxfDkbw2V6A-k0Aci2ODC8uY'
-CHAT_ID = '1157725640'
+BOT_TOKEN = 'your_telegram_bot_token'
+CHAT_ID = 'your_telegram_chat_id'
 
 # Create temp directory if not exists
 os.makedirs("temp", exist_ok=True)
